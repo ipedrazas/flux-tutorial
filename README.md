@@ -7,6 +7,7 @@ Tutorial for the GitOps Kubernetes operator Flux
 * Installing Flux
 * Connecting Flux to Github
 * Deploying a Helm chart using Flux
+* Helm and Flux, HelmOperator
 * Updating a deployed application using Flux
 * Deploying a second application with Automation on
 * Deleting a release
