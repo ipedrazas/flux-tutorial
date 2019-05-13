@@ -18,6 +18,8 @@ Deploy Tiller in kube-system namespace:
 helm init --skip-refresh --upgrade --service-account tiller
 ```
 
+## Installing Flux from a chart 
+
 Add the Flux repository of Weaveworks:
 
 ```
