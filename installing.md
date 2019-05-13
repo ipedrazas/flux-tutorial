@@ -1,5 +1,23 @@
 # Installing Flux
 
+## Installing Helm
+
+Create the service account and clusterrolebinding
+
+```
+kubectl -n kube-system create sa tiller
+
+kubectl create clusterrolebinding tiller-cluster-rule \
+    --clusterrole=cluster-admin \
+    --serviceaccount=kube-system:tiller
+```
+
+Deploy Tiller in kube-system namespace:
+
+```
+helm init --skip-refresh --upgrade --service-account tiller
+```
+
 Add the Flux repository of Weaveworks:
 
 ```
@@ -17,7 +35,7 @@ Install Flux using the helm chart
 helm upgrade -i flux \
 --set helmOperator.create=true \
 --set helmOperator.createCRD=false \
---set git.url=git@github.com:YOURUSER/flux-get-started \
+--set git.url=git@github.com:ipedrazas/flux-tutorial \
 --namespace flux \
 weaveworks/flux
 ```
