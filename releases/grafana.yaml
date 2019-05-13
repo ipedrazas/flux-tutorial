@@ -13,5 +13,6 @@ spec:
     service:
       type: NodePort
     ingress:
-    hosts:
-      - grafana.minikube.info
+      enabled: true
+      hosts:
+        - grafana.minikube.info
