@@ -41,3 +41,15 @@ helm upgrade -i flux \
 --namespace flux \
 weaveworks/flux
 ```
+
+## Connecting Flux to GitHub
+
+Last step is to get the public key and add it to our Github repo. We run the following command:
+
+```
+kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFKKgzroap+6u8vQ/LgyradFTfYUbQ7ADLcb057lchiphR8twcxY7R5wpd1fUFL/Q4+r7ynjIsrCLw1N3M3Wgah/tVtyAW7q4VEE4ZjnTI6ieWMyN+PxymNf9R8PYRbeuq+K0Bh4JW7hvVeqlCBVkyM5A0HT7qNXokVXe2rABrlfp3kRX8l55v5Lc9Rc0yNrRoZXObwebAWM6Wq746LbJPqDttcsXdGVKZAz/w3Zd3mBH0GygbIgfUnyHPMxNhvrLpQKse3eB63or0eyFNIBFHppnuhZsI3DBsVlDWrLMHJQbbwe859MBTYDlGNilksmHcjS5RUyZUCx
+```
+
+Go to `Settings` in your Github repo, `Deploy Keys` and add a new key using the result from the last command. Make sure you check `Allow write access` checkbox to allow flux to tag releases.
+ 
