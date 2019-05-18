@@ -1,0 +1,13 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: ambassador
+  namespace: demo
+spec:
+  releaseName: ramb01
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: ambassador
+    version: 2.5.1
+  values:
+    adminService.type: NodePort
