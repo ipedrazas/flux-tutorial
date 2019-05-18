@@ -38,4 +38,17 @@ ramb01 	1       	Sat May 18 11:39:48 2019	DEPLOYED	ambassador-2.5.1	0.61.1     	
 redis01	1       	Sat May 18 11:47:47 2019	DEPLOYED	redis-7.1.1     	4.0.14     	demo
 ```
 
-And as we can see, it has been created
+And as we can see, it has been created. This means that we can define our own directory structure to manage our applications. For example, let's refactor opur git repo and add a directory with the namespace name and all the resources we want to add into it:
+
+```
+-> %  tree
+.
+├── demo
+│   ├── ambassador.yaml
+│   ├── backend
+│   │   └── postgresql.yaml
+│   ├── demo.yaml
+│   └── redis.yaml
+```
+
+Let's commit this change and see what happens.

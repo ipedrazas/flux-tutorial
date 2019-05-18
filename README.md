@@ -12,6 +12,6 @@ Tutorial for the GitOps Kubernetes operator Flux
 * Deploying a second application with Automation on
 * [Deleting resources](deleting.md)
 * [Git repo structure](git-structure.md)
-* RBAC
+* Managing other resources with Flux: RBAC
 * Multi-cluster
 * Defining the Github workflow to manage environments using Flux
