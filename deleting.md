@@ -41,3 +41,15 @@ redis01	1       	Sat May 18 11:04:25 2019	DEPLOYED	redis-7.1.1  	4.0.14     	dem
 ```
 
 Once we have the Redis release installed, let's delete it and see what happens. Let's comment out the redis release and push the code.
+
+As you can see, Flux has deleted the redis release.
+
+Let's uncomment it and re-add it so Flux will redeploy. If we look at the logs we can see what's going on:
+
+```
+ts=2019-05-18T10:47:43.937942173Z caller=loop.go:103 component=sync-loop event=refreshed url=git@github.com:ipedrazas/flux-tutorial branch=master HEAD=270980d89035790c48ba73ffbdd8038c725e5096
+ts=2019-05-18T10:47:46.794935005Z caller=sync.go:470 component=cluster method=Sync cmd=apply args= count=3
+ts=2019-05-18T10:47:46.9798741Z caller=sync.go:536 component=cluster method=Sync cmd="kubectl apply -f -" took=184.830085ms err=null output="namespace/demo configured\nhelmrelease.flux.weave.works/ambassador unchanged\nhelmrelease.flux.weave.works/redis created"
+ts=2019-05-18T10:47:51.704607399Z caller=daemon.go:624 component=daemon event="Sync: 270980d, demo:helmrelease/redis" logupstream=false
+ts=2019-05-18T10:47:54.818049068Z caller=loop.go:441 component=sync-loop tag=flux-sync old=0bc10d6b28576c3f690ac82fe396ea5440b2a95b new=270980d89035790c48ba73ffbdd8038c725e5096
+```

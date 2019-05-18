@@ -1,0 +1,12 @@
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: postgresql
+  namespace: demo
+spec:
+  releaseName: posql01
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: postgresql
+    version: 5.0.0
+  
