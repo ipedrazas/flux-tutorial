@@ -51,4 +51,38 @@ And as we can see, it has been created. This means that we can define our own di
 │   └── redis.yaml
 ```
 
-Let's commit this change and see what happens.
+Let's commit this change and see what happens:
+
+```
+-> %  git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 863 bytes | 863.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To github.com:ipedrazas/flux-tutorial.git
+   08674e9..207cbd3  master -> master
+```
+
+And now let's check Flux's logs to see what happened with our releases:
+
+```
+s=2019-05-18T11:02:08.960055411Z caller=loop.go:103 component=sync-loop event=refreshed url=git@github.com:ipedrazas/flux-tutorial branch=master HEAD=207cbd356433b80cf91fca43f13b2fdc987a4ef3
+ts=2019-05-18T11:02:11.875381042Z caller=sync.go:470 component=cluster method=Sync cmd=apply args= count=4
+ts=2019-05-18T11:02:13.087807767Z caller=sync.go:536 component=cluster method=Sync cmd="kubectl apply -f -" took=1.212285708s err=null output="namespace/demo configured\nhelmrelease.flux.weave.works/ambassador unchanged\nhelmrelease.flux.weave.works/postgresql unchanged\nhelmrelease.flux.weave.works/redis unchanged"
+ts=2019-05-18T11:02:16.701795684Z caller=daemon.go:624 component=daemon event="Sync: 207cbd3, <cluster>:namespace/demo, demo:helmrelease/ambassador, demo:helmrelease/postgresql, demo:helmrelease/redis" logupstream=false
+t
+```
+
+In particular the following output:
+
+```
+namespace/demo configured
+helmrelease.flux.weave.works/ambassador unchanged
+helmrelease.flux.weave.works/postgresql unchanged
+helmrelease.flux.weave.works/redis unchanged
+```
+
+As we can see, changing the directory structure has no impact on our application releases.
