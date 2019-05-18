@@ -17,3 +17,13 @@ spec:
     name: postgresql
     version: 5.0.0
 ```
+
+Let's push and sync
+
+```
+git add .
+git commit -m "adding backend dir with postgres"
+fluxctl sync --k8s-fwd-ns flux
+```
+
+
