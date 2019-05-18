@@ -9,7 +9,12 @@ you're not very patient, force the flux sync with the command: `fluxctl sync --k
 
 Now check if you have your grafana release:
 
-`helm ls`
+```
+-> %  helm ls
+NAME   	REVISION	UPDATED                 	STATUS  	CHART        	APP VERSION	NAMESPACE
+flux   	2       	Sat May 18 10:57:19 2019	DEPLOYED	flux-0.9.4   	1.12.2     	flux
+grafana	527     	Fri May 17 16:45:48 2019	DEPLOYED	grafana-3.3.7	6.1.6      	demo
+```
 
 As you can see the grafana release has not been deleted. This is because to allow Flux to delete resources we have to 
 enable a flag, so, redeploy Flux using the following command:
