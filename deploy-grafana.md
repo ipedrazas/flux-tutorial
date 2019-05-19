@@ -1,6 +1,6 @@
 # Deploying a Helm chart using Helm
 
-Create a namespace in the namespaces directory:
+Create a yaml file `demo.yaml` with the namespace definition in the namespaces directory:
 
 ```
 apiVersion: v1
@@ -50,13 +50,8 @@ spec:
     hosts:
       - grafana.minikube.info
 
-Let's grab the IP of the service:
 
-```
-minikube service grafana -n demo
-```
-
-To make `grafana.minikube.info` to resolve to the minikube service, we have to modify the `/etc/hosts` file adding the following lines:
+To make `grafana.minikube.info` to resolve to the minikube service, we have to modify the `/etc/hosts` file adding the IP of minikube:
 
 ```
 ##
@@ -73,3 +68,9 @@ To make `grafana.minikube.info` to resolve to the minikube service, we have to m
 ::1             localhost
 ```
 
+When minikube starts it logs the IP, but you can always fetch it with this command:
+
+
+```
+minikube ip
+```

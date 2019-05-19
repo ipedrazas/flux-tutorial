@@ -53,3 +53,12 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFKKgzroap+6u8vQ/LgyradFTfYUbQ7ADLcb057lch
 
 Go to `Settings` in your Github repo, `Deploy Keys` and add a new key using the result from the last command. Make sure you check `Allow write access` checkbox to allow flux to tag releases.
  
+ The deafult structure we are going to start with is:
+
+```
+-> %  tree
+.
+├── namespaces
+├── releases
+└── resources
+```
