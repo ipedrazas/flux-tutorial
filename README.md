@@ -2,7 +2,7 @@
 
 Tutorial for the GitOps Kubernetes operator Flux
 
-* What is GitOps
+* [What is GitOps](intro.md)
 * What is Flux
 * [Installing Flux](installing.md)
 * [Connecting Flux to Github](installing.md)
