@@ -9,7 +9,7 @@ Tutorial for the GitOps Kubernetes operator Flux
 * [Deploying a Helm chart using Flux](deploy-grafana.md)
 * Helm and Flux, HelmOperator
 * [Updating a deployed application using Flux](deploy-grafana.md)
-* Deploying a second application with Automation on
+* [Deploying a second application with Automation on](automation.md)
 * [Deleting resources](deleting.md)
 * [Git repo structure](git-structure.md)
 * [Managing other resources with Flux: RBAC](rbac.md )
