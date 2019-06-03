@@ -1,0 +1,16 @@
+—--
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: myautomation
+  namespace: demo
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.workload: glob:test-*
+    flux.weave.works/tag.opa: semver:~1.0
+spec:
+  releaseName: aut01
+  chartGitPath: automation
+    image:
+      repository: ipedrazas/automation
+      tag: test-v1
