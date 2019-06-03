@@ -3,6 +3,8 @@ kind: HelmRelease
 metadata:
   name: postgresql
   namespace: demo
+  labels:
+    origin: flux
 spec:
   releaseName: posql01
   chart:

@@ -3,6 +3,8 @@ kind: HelmRelease
 metadata:
   name: redis
   namespace: demo
+  labels:
+    origin: flux
 spec:
   releaseName: redis01
   chart:

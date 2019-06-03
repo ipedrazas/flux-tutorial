@@ -3,6 +3,8 @@ kind: HelmRelease
 metadata:
   name: ambassador
   namespace: demo
+  labels:
+    origin: flux
 spec:
   releaseName: ramb01
   chart:
