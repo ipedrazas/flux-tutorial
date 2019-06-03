@@ -9,7 +9,10 @@ metadata:
     flux.weave.works/tag.opa: semver:~1.0
 spec:
   releaseName: aut01
-  chartGitPath: automation
+  chart:
+    git: git@github.com:ipedrazas/flux-tutorial.git
+    ref: master
+    path: charts/automation
   values:
     image.repository: ipedrazas/automation
     image.tag: test-v1
