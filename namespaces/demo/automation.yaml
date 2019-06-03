@@ -1,4 +1,3 @@
-—--
 apiVersion: flux.weave.works/v1beta1
 kind: HelmRelease
 metadata:
@@ -11,6 +10,6 @@ metadata:
 spec:
   releaseName: aut01
   chartGitPath: automation
-    image:
-      repository: ipedrazas/automation
-      tag: test-v1
+  values:
+    image.repository: ipedrazas/automation
+    image.tag: test-v1
